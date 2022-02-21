@@ -46,7 +46,7 @@ class DefaultController extends AbstractController
 
     private function getForm(): FormInterface
     {
-        return $this->createFormBuilder(null, ['method' => 'GET'])
+        return $this->createFormBuilder(null, ['method' => 'POST'])
             ->add('url', UrlType::class, ['label' => false, 'attr' => ['placeholder' => 'URL']])
             ->add('submitVideo', SubmitType::class, ['label' => 'Vidéo', 'attr' => ['class' => 'btn-warning']])
             ->add('submitAudio', SubmitType::class, ['label' => 'Audio', 'attr' => ['class' => 'btn-primary']])
