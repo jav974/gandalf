@@ -50,7 +50,7 @@ class YtDlpHandler
     public function extractAudio(string $url): string
     {
         $filename = $this->getFilename($url);
-        $process = new Process([$this->ytDlpPath, "-x", $url, "-o", "$this->outputPath/$filename.%(ext)s", '--ffmpeg-location', $this->ffmpegPath]);
+        $process = new Process([$this->ytDlpPath, "-x", $url, "-o", "$this->outputPath/$filename.%(ext)s", '--ffmpeg-location', $this->ffmpegPath, '--audio-format', 'mp3']);
         $process->setTimeout(3600);
         $outputFilename = '';
 
