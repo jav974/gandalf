@@ -22,6 +22,7 @@ class YtDlpHandler
     {
         $filename = $this->getFilename($url);
         $process = new Process([$this->ytDlpPath, $url, '-o', "$this->outputPath/$filename.%(ext)s"]);
+        $process->setTimeout(3600);
         $outputFilename = '';
 
         $process->run(function(string $type, string $line) use(&$outputFilename) {
@@ -50,6 +51,7 @@ class YtDlpHandler
     {
         $filename = $this->getFilename($url);
         $process = new Process([$this->ytDlpPath, "-x", $url, "-o", "$this->outputPath/$filename.%(ext)s", '--ffmpeg-location', $this->ffmpegPath]);
+        $process->setTimeout(3600);
         $outputFilename = '';
 
         $process->run(function(string $type, string $line) use(&$outputFilename) {
